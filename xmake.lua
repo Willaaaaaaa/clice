@@ -1,4 +1,4 @@
-set_xmakever("3.0.0")
+set_xmakever("3.0.5")
 set_project("clice")
 
 set_allowedplats("windows", "linux", "macosx")
