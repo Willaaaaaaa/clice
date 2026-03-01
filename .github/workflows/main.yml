@@ -82,15 +82,15 @@ jobs:
     if: ${{ needs.changes.outputs.vscode == 'true' }}
     uses: ./.github/workflows/publish-vscode.yml
 
-  cmake:
-    needs: changes
-    if: ${{ needs.changes.outputs.cmake == 'true' }}
-    uses: ./.github/workflows/test-cmake.yml
-
-  # xmake:
+  # cmake:
   #   needs: changes
-  #   if: ${{ needs.changes.outputs.xmake == 'true' }}
-  #   uses: ./.github/workflows/test-xmake.yml
+  #   if: ${{ needs.changes.outputs.cmake == 'true' }}
+  #   uses: ./.github/workflows/test-cmake.yml
+
+  xmake:
+    needs: changes
+    if: ${{ needs.changes.outputs.xmake == 'true' }}
+    uses: ./.github/workflows/test-xmake.yml
 
   release-clice:
     permissions:
@@ -113,8 +113,8 @@ jobs:
       - deploy
       # - clice
       - vscode
-      - cmake
-      # - xmake
+      # - cmake
+      - xmake
     runs-on: ubuntu-latest
     steps:
       - name: Check results
