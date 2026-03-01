@@ -82,10 +82,10 @@ jobs:
     if: ${{ needs.changes.outputs.vscode == 'true' }}
     uses: ./.github/workflows/publish-vscode.yml
 
-  cmake:
-    needs: changes
-    if: ${{ needs.changes.outputs.cmake == 'true' }}
-    uses: ./.github/workflows/test-cmake.yml
+  # cmake:
+  #   needs: changes
+  #   if: ${{ needs.changes.outputs.cmake == 'true' }}
+  #   uses: ./.github/workflows/test-cmake.yml
 
   xmake:
     needs: changes
@@ -113,7 +113,7 @@ jobs:
       - deploy
       # - clice
       - vscode
-      - cmake
+      # - cmake
       - xmake
     runs-on: ubuntu-latest
     steps:
